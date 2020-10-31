@@ -1,9 +1,10 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
      const {email, password} = req.body;
      try {
         // 1) check to see if a user exists with the provided email

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const accounts = require('./routes/accounts');
+const cors = require('cors')
+const account = require('./routes/account');
 const cart = require('./routes/cart');
 const checkout = require('./routes/checkout');
 const login = require('./routes/login');
@@ -17,7 +18,9 @@ require('./logging')();
 
 
 app.use(express.json());
-app.use('/api/accounts', accounts);
+app.use(cors())
+
+app.use('/api/account', account);
 app.use('/api/cart', cart);
 app.use('/api/checkout', checkout);
 app.use('/api/login', login);
